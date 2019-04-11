@@ -1,0 +1,49 @@
+#link_form {
+    grid-area: link_frm;
+    padding: 5px;
+}
+
+#tags_form {
+    grid-area: tags_frm;
+
+    padding: 5px;
+}
+
+#tags_list {
+    grid-area: tags_list;
+
+    padding: 5px;
+    overflow-y: hidden;
+
+    .segment {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+#links_list {
+    grid-area: links_list;
+
+    padding: 5px;
+    overflow-y: hidden;
+
+    .segment {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+#page_content {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 400px auto;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "link_frm links_list"
+        "tags_list links_list"
+        "tags_frm links_list";
+}
