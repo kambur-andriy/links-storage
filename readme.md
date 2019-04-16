@@ -8,4 +8,4 @@ This is a simple links manager,  which allows you:
 - Add tags to the link.
 - Filter links.
 
-The project was created with [Laravel](https://laravel.com/) and [React](https://reactjs.org/).
+The project was created with [Laravel](https://laravel.com/), [React](https://reactjs.org/) and [Semantic UI](https://semantic-ui.com/).

@@ -19,7 +19,7 @@ class ApiController extends Controller
 	public function saveTag(Request $request)
 	{
 		$request->validate([
-			'text' => 'bail|required|string'
+			'text' => 'bail|required|string|unique:tags,text'
 		]);
 
 		$tag = Tag::create(
@@ -55,7 +55,7 @@ class ApiController extends Controller
 		$request->validate([
 			'id' => 'bail|required|integer',
 			'name' => 'bail|required|string',
-			'url' => 'bail|required|url',
+			'url' => 'bail|required|url|unique:links,url',
 			'tags' => 'bail|required|array',
 		]);
 
