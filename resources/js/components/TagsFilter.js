@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
     )
 };
 
-class TagsList extends Component {
+class TagsFilter extends Component {
     constructor() {
         super();
     }
@@ -66,4 +66,4 @@ class TagsList extends Component {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TagsList);
+export default connect(mapStateToProps, mapDispatchToProps)(TagsFilter);

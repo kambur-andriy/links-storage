@@ -9,28 +9,28 @@
     padding: 5px;
 }
 
-#tags_list {
-    grid-area: tags_list;
+#search_form {
+    grid-area: search_frm;
 
     padding: 5px;
-    overflow-y: hidden;
-
-    .segment {
-        height: 100%;
-        overflow-y: auto;
-    }
 }
 
-#links_list {
-    grid-area: links_list;
+#tags_filter {
+    grid-area: tags_filter;
 
+    height: 100%;
     padding: 5px;
-    overflow-y: hidden;
 
-    .segment {
-        height: 100%;
-        overflow-y: auto;
-    }
+    overflow-y: auto;
+}
+
+#links_list_container {
+    grid-area: links_list_container;
+
+    height: 100%;
+    padding: 5px;
+
+    overflow-y: auto;
 }
 
 #page_content {
@@ -40,10 +40,11 @@
     display: grid;
 
     grid-template-columns: 400px auto;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto auto 1fr ;
 
     grid-template-areas:
-        "link_frm links_list"
-        "tags_list links_list"
-        "tags_frm links_list";
+        "link_frm links_list_container"
+        "tags_frm links_list_container"
+        "search_frm links_list_container"
+        "tags_filter links_list_container";
 }

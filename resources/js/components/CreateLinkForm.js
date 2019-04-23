@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const renderTagLabel = label => ({
-    color: 'green',
+    color: 'blue',
     content: `${label.text}`,
     icon: 'tag',
     basic: true
@@ -224,7 +224,7 @@ class CreateLinkForm extends Component {
                 <Button.Group size='large' widths='2'>
                     <Button
                         basic
-                        positive
+                        color='blue'
                         onClick={this.onCancelSubmit}
                     >
                         Cancel
@@ -232,7 +232,7 @@ class CreateLinkForm extends Component {
 
 
                     <Button
-                        positive
+                        color='blue'
                         type='submit'
                     >
                         Save

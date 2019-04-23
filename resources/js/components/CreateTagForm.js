@@ -105,7 +105,7 @@ class CreateTagForm extends Component {
 
                 <Button.Group size='large' widths='2'>
                     <Button
-                        positive
+                        color="yellow"
                     >
                         Create
                     </Button>
