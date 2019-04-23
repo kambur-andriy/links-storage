@@ -28,6 +28,11 @@ const FiltersReducer = (state = defaultState, action) => {
                 ]
             };
 
+        case 'STORE_LINK':
+            return {
+                ...defaultState,
+            };
+
         default:
             return state;
     }

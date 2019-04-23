@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Table, Icon} from 'semantic-ui-react'
+import {Table, Icon, Segment, Header} from 'semantic-ui-react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {getLinks, editLink} from './../storage/actions/LinksActions';
@@ -8,7 +8,8 @@ import {getLinks, editLink} from './../storage/actions/LinksActions';
 const mapStateToProps = function (store) {
     return {
         linksList: store.links.linksList,
-        selectedTags: store.tags.selectedTags,
+        selectedTags: store.filters.selectedTags,
+        searchString: store.filters.searchString,
     };
 };
 
@@ -45,9 +46,21 @@ class LinksList extends Component {
                     }
                 );
 
+                if (this.props.searchString.length && !link.name.toLowerCase().includes(this.props.searchString.toLowerCase())) {
+                    showLink = false;
+                }
+
                 return showLink;
             }
         );
+
+        if (visibleLinksList.length === 0) {
+            return (
+                <Segment basic textAlign='center'>
+                    Links list is empty
+                </Segment>
+            )
+        }
 
         return (
 

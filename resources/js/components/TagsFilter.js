@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import {Table, Checkbox} from 'semantic-ui-react'
+import {Table, Checkbox, Segment} from 'semantic-ui-react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {getTags, selectTag} from './../storage/actions/TagsActions';
+import {filterByTag} from './../storage/actions/FiltersActions';
 
 
 const mapStateToProps = function (store) {
     return {
         tagsList: store.tags.tagsList,
-        selectedTags: store.tags.selectedTags,
+        selectedTags: store.filters.selectedTags,
     };
 };
 
@@ -16,7 +17,7 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
             getTags,
-            selectTag
+            filterByTag,
         },
         dispatch
     )
@@ -32,6 +33,15 @@ class TagsFilter extends Component {
     }
 
     render() {
+
+        if (this.props.tagsList.length === 0) {
+            return (
+                <Segment basic textAlign='center'>
+                    Tags list is empty
+                </Segment>
+            )
+        }
+
         return (
 
             <Table
@@ -47,7 +57,7 @@ class TagsFilter extends Component {
                                         <Checkbox
                                             toggle
                                             onChange={
-                                                () => this.props.selectTag(tag.id)
+                                                () => this.props.filterByTag(tag.id)
                                             }
                                             checked={this.props.selectedTags.indexOf(tag.id) !== -1}
                                         />

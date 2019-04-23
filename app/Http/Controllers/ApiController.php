@@ -39,7 +39,7 @@ class ApiController extends Controller
 	public function tagsList()
 	{
 		return response()->json(
-			Tag::all()
+			Tag::orderBy('id', 'desc')->get()
 		);
 	}
 

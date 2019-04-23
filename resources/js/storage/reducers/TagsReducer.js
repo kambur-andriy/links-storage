@@ -16,31 +16,9 @@ const TagsReducer = (state = defaultState, action) => {
             return {
                 ...state,
                 tagsList: [
-                    ...state.tagsList,
-                    action.tag
+                    action.tag,
+                    ...state.tagsList
                 ]
-            };
-
-        case 'TOGGLE_TAG':
-            if (state.selectedTags.indexOf(action.tagId) !== -1) {
-                return {
-                    ...state,
-                    selectedTags: state.selectedTags.filter(tagId => tagId !== action.tagId)
-                }
-            }
-
-            return {
-                ...state,
-                selectedTags: [
-                    ...state.selectedTags,
-                    action.tagId
-                ]
-            };
-
-        case 'STORE_LINK':
-            return {
-                ...state,
-                selectedTags: []
             };
 
         default:
