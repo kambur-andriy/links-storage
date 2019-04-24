@@ -1,6 +1,6 @@
 const defaultState = {
     searchString: '',
-    selectedTags:[]
+    selectedTags: []
 }
 
 const FiltersReducer = (state = defaultState, action) => {
@@ -28,6 +28,7 @@ const FiltersReducer = (state = defaultState, action) => {
                 ]
             };
 
+        case 'CLEAR_FILTERS':
         case 'STORE_LINK':
             return {
                 ...defaultState,

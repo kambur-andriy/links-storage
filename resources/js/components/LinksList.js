@@ -57,7 +57,10 @@ class LinksList extends Component {
         if (visibleLinksList.length === 0) {
             return (
                 <Segment basic textAlign='center'>
-                    Links list is empty
+                    <Header icon color='grey'>
+                        <Icon name='clipboard outline' color='grey'/>
+                        There are no links in the list
+                    </Header>
                 </Segment>
             )
         }
@@ -73,26 +76,22 @@ class LinksList extends Component {
                         visibleLinksList.map(
                             link => {
                                 return <Table.Row key={link.id}>
-                                    <Table.Cell>{link.name}</Table.Cell>
-                                    <Table.Cell collapsing>
-                                        <Icon
-                                            name='edit outline'
-                                            color="green"
-                                            onClick={
-                                                () => this.props.editLink(link.id)
-                                            }
-                                        />
-                                    </Table.Cell>
-                                    <Table.Cell collapsing>
+                                    <Table.Cell>
                                         <a
                                             href={link.url}
                                             target="_blank"
                                         >
-                                            <Icon
-                                                name='shipping fast'
-                                                color="green"
-                                            />
+                                            {link.name}
                                         </a>
+                                    </Table.Cell>
+                                    <Table.Cell collapsing>
+                                        <Icon
+                                            name='edit outline'
+                                            color="blue"
+                                            onClick={
+                                                () => this.props.editLink(link.id)
+                                            }
+                                        />
                                     </Table.Cell>
                                 </Table.Row>
                             }

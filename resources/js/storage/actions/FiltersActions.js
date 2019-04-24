@@ -8,11 +8,15 @@ const updateTagsFilter = tagId => ({
     tagId: tagId
 });
 
+const resetFilters = () => ({
+    type: 'CLEAR_FILTERS',
+});
+
 
 /***************************************************************/
 
 
-export const quickSearch = searchString => dispatch => {
+export const changeSearch = searchString => dispatch => {
 
     dispatch(
         updateSearchFilter(searchString)
@@ -20,10 +24,18 @@ export const quickSearch = searchString => dispatch => {
 
 };
 
-export const filterByTag = tagId => dispatch => {
+export const changeTag = tagId => dispatch => {
 
     dispatch(
         updateTagsFilter(tagId)
+    );
+
+};
+
+export const clearAll = () => dispatch => {
+
+    dispatch(
+        resetFilters()
     );
 
 };

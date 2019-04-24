@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, Message} from 'semantic-ui-react'
+import {Button, Form, Input, Message} from 'semantic-ui-react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 
@@ -97,6 +97,13 @@ class CreateTagForm extends Component {
             >
                 <Form.Input
                     fluid
+                    icon={
+                        {
+                            name: 'tag',
+                            color: 'yellow'
+                        }
+                    }
+                    iconPosition='left'
                     placeholder='New Tag'
                     value={this.state.formData.text}
                     onChange={this.onChangeText}

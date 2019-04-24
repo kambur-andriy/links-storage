@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Input} from 'semantic-ui-react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {quickSearch} from './../storage/actions/FiltersActions';
+import {changeSearch, clearAll} from './../storage/actions/FiltersActions';
 
 
 const mapStateToProps = function (store) {
@@ -14,7 +14,8 @@ const mapStateToProps = function (store) {
 const mapDispatchToProps = dispatch => {
     return bindActionCreators(
         {
-            quickSearch
+            changeSearch,
+            clearAll
         },
         dispatch
     )
@@ -31,16 +32,21 @@ class SearchForm extends Component {
 
             <Input
                 fluid
-                icon='search'
+                icon={
+                    {
+                        name: 'search',
+                        color: 'green'
+                    }
+                }
                 iconPosition='left'
                 placeholder='Search...'
                 onChange={
-                    (event, data) => this.props.quickSearch(data.value)
+                    (event, data) => this.props.changeSearch(data.value)
                 }
                 onKeyDown={
                     event => {
                         if (event.keyCode === 27) {
-                            this.props.quickSearch('');
+                            this.props.changeSearch('');
                         }
                     }
                 }
@@ -49,8 +55,8 @@ class SearchForm extends Component {
                         color: 'green',
                         labelPosition: 'right',
                         icon: 'cancel',
-                        content: 'Clear',
-                        onClick: () => this.props.quickSearch('')
+                        content: 'Clear All',
+                        onClick: () => this.props.clearAll()
                     }
                 }
                 value={this.props.searchString}
